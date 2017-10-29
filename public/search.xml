@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Hexo从入门到放弃之修改文章底部标签]]></title>
+    <url>%2FHexo%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%E4%B9%8B%E4%BF%AE%E6%94%B9%E6%96%87%E7%AB%A0%E5%BA%95%E9%83%A8%E6%A0%87%E7%AD%BE.html</url>
+    <content type="text"><![CDATA[博客底部tags标签是个“#”号太丑了，想更换一个 前后效果对比 更换前样式 更换后样式 #具体实现方法 修改主题根目录下layout/_macro/post.swig文件，搜索 rel=”tag”&gt;#，将 # 换成 即可12345&lt;div class="post-tags"&gt; &#123;% for tag in post.tags %&#125; &lt;a href="&#123;&#123; url_for(tag.path) &#125;&#125;" rel="tag"&gt;&lt;i class="fa fa-tag"&gt;&lt;/i&gt;&#123;&#123; tag.name &#125;&#125;&lt;/a&gt; &#123;% endfor %&#125; &lt;/div&gt;]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Node.js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo从入门到放弃之添加顶部加载条]]></title>
+    <url>%2FHexo%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%E4%B9%8B%E6%B7%BB%E5%8A%A0%E9%A1%B6%E9%83%A8%E5%8A%A0%E8%BD%BD%E6%9D%A1.html</url>
+    <content type="text"><![CDATA[博客内容太多，加载太慢，需要一个进度条来显示加载进度，提高用户体验。 具体实现方法打开主题配置文件下的 layout/_partials/head.swig文件，以下代码12&lt;script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"&gt;&lt;/script&gt;&lt;link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet"&gt; 就已经设置好了默认的进度条 进阶更改进度条颜色12345678910111213&lt;style&gt; .pace .pace-progress &#123; background: #1E92FB; /*进度条颜色*/ height: 3px; &#125; .pace .pace-progress-inner &#123; box-shadow: 0 0 10px #1E92FB, 0 0 5px #1E92FB; /*阴影颜色*/ &#125; .pace .pace-activity &#123; border-top-color: #1E92FB; /*上边框颜色*/ border-left-color: #1E92FB; /*左边框颜色*/ &#125;&lt;/style&gt; 这里可以自定义进度条的一些颜色属性]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Node.js</tag>
+        <tag>bootcss</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo从入门到放弃之博客页尾广告去除]]></title>
+    <url>%2FHexo%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%E4%B9%8B%E5%8D%9A%E5%AE%A2%E9%A1%B5%E5%B0%BE%E5%B9%BF%E5%91%8A%E5%8E%BB%E9%99%A4.html</url>
+    <content type="text"><![CDATA[网页的页尾可以发现存有Hexo特有的广告宣传，虽然是开源免费使用的产品，但我还是想把广告去掉 删除页尾广告博客页尾可以看到如下Hexo的广告需要到主题配置目录下的layout_partials目录下（不同主题路径可能会有不通，我这里用的是Next主题）找到footer.swig文件，右键notepad++打开12345678910&lt;div class="powered-by"&gt; &#123;&#123; __('footer.powered', '&lt;a class="theme-link" href="https://hexo.io"&gt;Hexo&lt;/a&gt;') &#125;&#125;&lt;/div&gt;&lt;div class="theme-info"&gt; &#123;&#123; __('footer.theme') &#125;&#125; - &lt;a class="theme-link" href="https://github.com/iissnan/hexo-theme-next"&gt; NexT.&#123;&#123; theme.scheme &#125;&#125; &lt;/a&gt;&lt;/div&gt; 上面的配置就是博客页尾显示的内容，我们把内容更改为自己想要的信息就可以了，下面是我更改后的内容123456789&lt;div class="powered-by"&gt; &#123;&#123; __('footer.powered', '&lt;a class="theme-link" href="https://github.com/SamGenTLEManKaka"&gt;绅士&lt;/a&gt;') &#125;&#125;&lt;/div&gt;&lt;div class="theme-info"&gt; &#123;&#123; __('footer.theme') &#125;&#125; - 技术成就梦想 &lt;/a&gt;&lt;/div&gt;]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Node.js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo从入门到放弃之添加站内搜索功能]]></title>
+    <url>%2FHexo%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%E4%B9%8B%E6%B7%BB%E5%8A%A0%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD.html</url>
+    <content type="text"><![CDATA[博客内文章太多了，一个一个找很费时间，需要一个搜索功能来快速查找站内关键词，我使用的是Local Search Local Search1、安装 hexo-generator-search在根目录下执行命令：1$ npm install hexo-generator-search --save 2、安装 hexo-generator-searchdb在根目录下执行命令：1$ npm install hexo-generator-searchdb --save #配置生效1、打开根目录下的配置文件_config.yml，添加以下配置内容：12345search: path: search.xml field: post format: html limit: 10000 2、打开主题配置文件_config.yml，修改local_search配置项为true：12local_search: enable: true 然后重新发布hexo即可在导航栏看到“搜索”按钮，点击就可以搜索了。]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Node.js</tag>
+        <tag>Local Search</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[(五)Hexo从入门到放弃之域名绑定]]></title>
+    <url>%2FHexo%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%E4%B9%8B%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A.html</url>
+    <content type="text"><![CDATA[不愿意用github的二级域名，就申请自己的域名来解析 万网域名+DNS1、域名的申请就不占用篇幅了2、解析需要把自己的域名解析到自己的github空间上，一共需要加三条记录如图是我的添加纪录 github配置1、第一种方法是在Hexo根目录下的public\目录新建一个名为CNAME的文件（没有文件类型后缀，如果后，请删除），用记事本打开，里面写上你自己的域名（http部分不需要写）例如我就写：gentlemankaka.com然后重新发布下Hexo即可12hexo ghexo d 2、第二中方法是去github你的项目页面，点击settings进入设置页面，然后找到Custom domain配置项，把你的域名填写进入即可（同样http部分不写）]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Node.js</tag>
+        <tag>github</tag>
+        <tag>万网</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[(四)Hexo从入门到放弃之更换Next主题]]></title>
+    <url>%2FHexo%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%E4%B9%8B%E6%9B%B4%E6%8D%A2Next%E4%B8%BB%E9%A2%98.html</url>
+    <content type="text"><![CDATA[独一无二是个性，打LOL宁愿花钱买皮肤都不愿意用经典皮肤，Hexo有很多种免费皮肤可以随意更换，这里我选择Next主题 Next主题1、下载 点击Next代码仓库选择版本下载Next主题源代码，版本当然选择最新的稳定版2、安装 下载下来的压缩包解压后放至Hexo根目录的themes\目录下 打开Hexo根目录名为_config.yml的全局配置文件，找到theme:这个配置项，把主题目录名称粘贴上去1theme: hexo-theme-next-5.0.1 3、重新上传下Hexo可以查看效果12hexo ghexo d 4、进阶 更多个性化设置访问Next官网]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Node.js</tag>
+        <tag>github</tag>
+        <tag>Next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[(三)Hexo从入门到放弃之发表文章]]></title>
+    <url>%2FHexo%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%E4%B9%8B%E5%8F%91%E8%A1%A8%E6%96%87%E7%AB%A0.html</url>
+    <content type="text"><![CDATA[博客最重要的就是发表文章了，Hexo的博客采用的是Markdown语法，只需要一个步骤就可以完成文章的发表。 新建文章进入到Hexo根目录下，右键选择“Git Bash Here”，输入一下命令：1hexo new "filename" 这里的filename即文章链接地址，执行成功后进入“source_posts”目录下就会看到一个以“filename” 命名的md文件，文章内容编辑此文件即可。 编辑文章Hexo博客文章分为两部分，第一部分是文章的属性，第二部分是文章的内容，文章的内容可以参考Markdown入门指南。文件内“—”括起来的部分是文章的属性，具体如下：123456789101112---title: #文章标题date: #文章发表时间tags: #标签 - 标签1 - 标签2updated: #更新时间comments: #是否开启评论（需要配合评论功能，后面会讲）categories: #分类 - 分类1 - 分类2--- comments是否开启评论用true和flase表达。编辑好内容后直接保存即可。]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[(二)Hexo从入门到放弃之部署至github page]]></title>
+    <url>%2FHexo%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%E4%B9%8B%E9%83%A8%E7%BD%B2%E8%87%B3github-page.html</url>
+    <content type="text"><![CDATA[Hexo是搭建好了，但是本地搭建自己YY是绝对不能满足需求的，我们需要把网站部署到公网上，供所有人浏览。可选的方案是使用云主机的方式来发布，这里我们选择成本更低廉的github page部署方式。 前期准备1、 github账号github账号注册地址注册github，如果已有github账号，直接使用即可 Hexo部署至github page1、登录githubgithub首页，选择“New repository”新建项目仓库，在“Repository name”里输入：“YourName.github.io”这里的“YourName”一定要和前面的“Owner”里的内容一致，也就是一定要已记得用户名+.github.io命名。2、复制项目链接进入刚才新建的项目页面，复制“Clone or download”里的https链接，如果找不到，可以直接用这个地址，https://github.com/YourName/YourName.github.io.git ，把链接里的YourName更改为你的用户名即可。3、修改Hexo配置进入Hexo根目录，找到一个_config.yml的文件，右击使用notepad++，或者Sublime Text打开（千万不要使用notepad！千万不要使用notepad！千万不要使用notepad！），进入文件的最后一行，看到内容是这样的：12deploy: type: 添加一些配置信息进去（其中的YourName仍旧改成你的github用户名）：1234deploy: type: git repo: https://github.com/YourName/YourName.github.io.git branch: master (PS:注意缩进和冒号后面的空格必不可少！) 4、发布Hexo到github page修改后关闭保存文件，在Hexo根目录右击鼠标，选中“Git Bash Here”，输入命令：1hexo g 小等一会后继续输入：1hexo d 如果出现Inof并且没有报错就说明发布成功了，这时候可以通过github page的默认地址：https://YourName.github.io/ 来访问了（YourName依旧换成你的github用户名）网页生效可能会有几分钟的延迟，没有即时生效不要着急，小等一会即可 点此访问我的GitHub]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Node.js</tag>
+        <tag>github</tag>
+        <tag>github page</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[(一)Hexo从入门到放弃之Hexo安装]]></title>
+    <url>%2FHexo%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%E4%B9%8BHexo%E5%AE%89%E8%A3%85.html</url>
+    <content type="text"><![CDATA[Hexo是部署简单的静态博客，可以配合github page的免费空间，多种主题搭配选择，使用Markdown语法，稍微有点计算机基础都可以搭建。 配置环境1、Node.js去Node官网下载最新版本，安装一路狂点下一步就安装好了。2、git去git下载页下载git，安装。 hexo安装安装好Node.js和git后，找一个目录（准备存放Hexo的目录），点击鼠标右键，选择“Git Bash Here”，输入以下命令安装Hexo1npm install hexo-cli -g 小等一会后继续输入以下命令1hexo init Hexo所有的文件都被创建在了当前目录下，继续输入安装相关依赖：1npm install 到现在Hexo全部组件都安装完成了，现在可以尝试开启服务1hexo server 如果看到下面的提示，说明服务开启成功了12INFO Start processingINFO Hexo is running at http://localhost:4000/. Press Ctrl+C to stop. 就可以打开浏览器，输入：localhost:4000，查看自己的Hexo博客网站了]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Node.js</tag>
+        <tag>github</tag>
+      </tags>
+  </entry>
+</search>
